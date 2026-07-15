@@ -19,6 +19,15 @@
   text-align: center;
   padding-top: 1rem;
 
+  .tag-row,
+  .category-row {
+    display: block;
+  }
+
+  .tag-row {
+    border-bottom: 1px solid var(--global-divider-color);
+  }
+
   ul {
     justify-content: center;
     display: flow-root;

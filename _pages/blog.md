@@ -1,4 +1,4 @@
-<!-- ---
+---
 layout: default
 permalink: /blog/
 title: blog
@@ -32,6 +32,8 @@ pagination:
 {% if site.display_tags and site.display_tags.size > 0 or site.display_categories and site.display_categories.size > 0 %}
 
   <div class="tag-category-list">
+    {% if site.display_tags and site.display_tags.size > 0 %}
+    <div class="tag-row">
     <ul class="p-0 m-0">
       {% for tag in site.display_tags %}
         <li>
@@ -41,9 +43,12 @@ pagination:
           <p>&bull;</p>
         {% endunless %}
       {% endfor %}
-      {% if site.display_categories.size > 0 and site.display_tags.size > 0 %}
-        <p>&bull;</p>
-      {% endif %}
+    </ul>
+    </div>
+    {% endif %}
+    {% if site.display_categories and site.display_categories.size > 0 %}
+    <div class="category-row">
+    <ul class="p-0 m-0">
       {% for category in site.display_categories %}
         <li>
           <i class="fa-solid fa-tag fa-sm"></i> <a href="{{ category | slugify | prepend: '/blog/category/' | relative_url }}">{{ category }}</a>
@@ -53,6 +58,8 @@ pagination:
         {% endunless %}
       {% endfor %}
     </ul>
+    </div>
+    {% endif %}
   </div>
   {% endif %}
 
@@ -193,4 +200,4 @@ pagination:
 {% include pagination.liquid %}
 {% endif %}
 
-</div> -->
+</div>
